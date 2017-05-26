@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features
+        name="feature-list"
+        xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0">
+
+    <feature name="soap-feature" version="1.0.0">
+        <feature>webconsole</feature>
+        <feature>spring</feature>
+        <feature>http</feature>
+        <feature>cxf-jaxws</feature>
+        <bundle>mvn:epam.wklab.soap.cxf/soap-bundle/1.0.0</bundle>
+    </feature>
+
+</features>
