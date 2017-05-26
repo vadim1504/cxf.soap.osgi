@@ -7,14 +7,12 @@ import com.services.cxf.soap.generated.wsdl.types.person.Person;
 import com.services.cxf.soap.generated.wsdl.types.person.Request;
 import com.services.cxf.soap.generated.wsdl.types.person.Response;
 import com.services.cxf.soap.services.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 
 public class PersonImpl implements PersonPortType {
 
-    @Autowired
     private PersonService personService;
 
     @Override
@@ -25,4 +23,9 @@ public class PersonImpl implements PersonPortType {
         response.getFriends().addAll(personList);
         return response;
     }
+
+    public void setPersonService(PersonService personService) {
+        this.personService = personService;
+    }
+
 }

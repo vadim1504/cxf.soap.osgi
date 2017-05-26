@@ -7,6 +7,15 @@
           http://www.osgi.org/xmlns/blueprint/v1.0.0
           http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-    <jaxws:endpoint implementor="com.services.cxf.soap.endpoint.PersonImpl" address="/person"/>
+    <bean id="personService" class="com.services.cxf.soap.services.PersonService"/>
 
+    <bean id="personImpl" class="com.services.cxf.soap.endpoint.PersonImpl">
+        <property name="personService" ref="personService"/>
+    </bean>
+
+    <jaxws:endpoint implementor="#personImpl" address="/person"/>
+
+    <jaxws:client id="PersonClient"
+                  serviceClass="com.services.cxf.soap.generated.wsdl.services.person.PersonPortType"
+                  address="http://localhost:8181/cxf/person" />
 </blueprint>
